@@ -18,3 +18,17 @@ node_modules/
 
 # Logs
 *.log
+
+# Secrets / credentials (defensive — none committed today)
+.env
+.env.*
+credentials.json
+secrets.json
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+id_rsa
+id_rsa.*
+secrets/
