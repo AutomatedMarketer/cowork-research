@@ -55,3 +55,34 @@ Generate a 600-word executive brief on any topic, person, company, or URL.
 ## Voice for the brief itself
 
 Professional, executive-ready. NOT 3rd-grade — the brief is the user's deliverable, not the wizard's voice. Short paragraphs, clear structure, scannable. The TLDR comes first; the brief supports it.
+
+## Self-improvement close (Foundation B)
+
+After the brief is written, ask the user ONE question:
+
+> "Did this brief land? What would have made it 10% better?"
+
+- Append the user's answer as a one-line entry to `projects/research/memory.md` (append-only, never overwrite). Format: `<YYYY-MM-DD> /research-brief on <topic> — <user's one-line feedback>`
+- Scan `projects/research/memory.md` for recurring complaints. If the same complaint shows up 3+ times (e.g., "TLDR too long" three runs in a row), append a flag line: `flag: research-brief skill — <pattern>, consider revising SKILL.md`
+- Do NOT edit SKILL.md yourself. Surface the flag to the user; they decide if/when to revise.
+
+## Actionable close (Foundation C)
+
+End every run with this exact block (the `⚡ NEXT MOVE:` string is canonical — caps, leading lightning emoji, colon, space):
+
+```
+⚡ NEXT MOVE: <specific person/asset> <specific verb> <specific timing>
+   Why: <one-sentence reason tied to the brief's TLDR>
+```
+
+The Next Move MUST be the single highest-value action this brief unlocks. Pick from:
+
+| Brief type | Likely Next Move pattern |
+|---|---|
+| Brief on a person/prospect | "Send the <name> brief to <recipient> before <time> — it answers <specific question/objection>." |
+| Brief on a company/competitor | "Drop the 5-bullet TLDR into <doc/deck/email> by <time> — it sharpens our positioning on <angle>." |
+| Brief on a topic/trend | "Run `/research-brief` on <follow-up subtopic> next — this brief surfaced <specific gap> that needs depth." |
+| Brief on a URL | "Re-read section <X> of the brief before <upcoming meeting/email> — that's the part the recipient cares about." |
+
+✅ "⚡ NEXT MOVE: Send the Acme brief to John today before 5pm — it answers his pricing-objection question from Monday's call."
+❌ "⚡ NEXT MOVE: Review the brief and decide what to do." (no subject, no timing — fails the rule)

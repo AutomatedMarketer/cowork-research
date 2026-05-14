@@ -49,3 +49,38 @@ CRO + competitive audit of any URL. Bulleted recommendations.
 ## Voice for the audit itself
 
 Direct, actionable, scannable. Each recommendation is one bullet. No essays. The user wants to know what to fix and why, fast.
+
+## Self-improvement close (Foundation B)
+
+After the audit is written, ask the user ONE question:
+
+> "Did this audit land? What would have made it 10% better?"
+
+- Append the user's answer as a one-line entry to `projects/research/memory.md` (append-only, never overwrite). Format: `<YYYY-MM-DD> /web-audit on <domain> — <user's one-line feedback>`
+- Scan `projects/research/memory.md` for recurring complaints. If the same complaint shows up 3+ times (e.g., "too many minor-severity items, hide them" three runs in a row), append a flag line: `flag: web-audit skill — <pattern>, consider revising SKILL.md`
+- Do NOT edit SKILL.md yourself. Surface the flag to the user; they decide if/when to revise.
+
+## Actionable close (Foundation C)
+
+End every run with this exact block (the `⚡ NEXT MOVE:` string is canonical — caps, leading lightning emoji, colon, space):
+
+```
+⚡ NEXT MOVE: <single highest-leverage CRO fix> <ship by when>
+   Why: <one-sentence reason — usually severity + expected lift>
+```
+
+The Next Move MUST be the SINGLE highest-leverage fix from the audit — not a list. Picking rule:
+
+1. If any **critical** failures exist → pick the one with the highest CRO impact (usually a hero/CTA/proof issue)
+2. If no critical, pick the **important** fix that touches the most pageviews (usually above-the-fold or primary CTA)
+3. Never recommend "minor" items as the Next Move — they go in the audit body, not here
+
+| Common audit findings | Next Move pattern |
+|---|---|
+| Hero copy is generic / no clear value prop | "Rewrite the hero headline before <date> — current copy doesn't name the ICP or the outcome." |
+| Single CTA is buried / weak | "Move the primary CTA above the fold today — it's the highest-leverage 30-min fix on the page." |
+| No social proof above the fold | "Add a 1-line proof bar (logos or stat) under the hero by end of week — biggest credibility gap." |
+| Form has too many fields | "Cut form fields from <N> to <M> this week — drop everything not strictly required for the next step." |
+
+✅ "⚡ NEXT MOVE: Rewrite the hero headline on acme.com before Friday — current copy doesn't name the ICP or the outcome, costing the most pageviews of any single fix."
+❌ "⚡ NEXT MOVE: Address the critical findings from the audit." (no specific fix, no timing — fails the rule)
