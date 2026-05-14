@@ -59,20 +59,36 @@ Tactical, scannable. Decisions and actions are the load-bearing parts — the re
 
 ## Self-improvement close (Foundation B)
 
-After the recap is written, ask the user ONE question:
+After delivering the main output + Next Move block, ask:
 
-> "Did this recap land? What would have made it 10% better?"
+> "What would've made this 10% better?"
 
-- Append the user's answer as a one-line entry to `projects/research/memory.md` (append-only, never overwrite). Format: `<YYYY-MM-DD> /meeting-recap on <meeting-title> — <user's one-line feedback>`
-- Scan `projects/research/memory.md` for recurring complaints. If the same complaint shows up 3+ times (e.g., "quotes section is noise, drop it" three runs in a row), append a flag line: `flag: meeting-recap skill — <pattern>, consider revising SKILL.md`
-- Do NOT edit SKILL.md yourself. Surface the flag to the user; they decide if/when to revise.
+Accept a one-line answer. Then:
+
+1. Append to `projects/research/memory.md`:
+   ```
+   <YYYY-MM-DD> | /meeting-recap | <answer verbatim>
+   ```
+
+2. Read `memory.md` and check if any pattern recurs 3+ times for `/meeting-recap`. Patterns matching by:
+   - Substring overlap >= 60% with prior entries
+   - Same keyword (e.g., "quotes", "owners", "TLDR", "Fathom", "deadlines", "decisions")
+
+3. If recurrence detected:
+   - Surface: "I've seen this 3+ times. Want me to update `/meeting-recap` itself?"
+   - If yes → draft change to `projects/research/skill-improvements.md` in this format:
+     ```
+     | /meeting-recap | <pattern> | <first_seen_date> | <recurrence_count> | <suggested_change> | <reviewed: no> |
+     ```
+
+4. If no recurrence → silent. No noise.
 
 ## Actionable close (Foundation C)
 
 End every run with this exact block (the `⚡ NEXT MOVE:` string is canonical — caps, leading lightning emoji, colon, space):
 
 ```
-⚡ NEXT MOVE: <owner> <specific verb on specific action item> <by when>
+⚡ NEXT MOVE: <Subject> <Verb> <Timing>
    Why: <one-sentence reason — usually the decision or commitment that depends on it>
 ```
 
@@ -81,14 +97,20 @@ The Next Move MUST be the SINGLE most important action item from the meeting —
 1. If the user is the owner of any action item → pick the user's most time-sensitive one
 2. If the user owes a follow-up to another attendee → that wins (relationship debt compounds fastest)
 3. If all action items belong to others → pick the one the user needs to UNBLOCK or chase, with timing
-4. If the meeting had no action items but had a decision → pick the action that operationalizes the decision
+4. If there were no action items but a decision was made → pick the first step that makes that decision real
 
 | Action item type | Next Move pattern |
 |---|---|
 | User owes a deliverable | "Send <deliverable> to <attendee> by <deadline> — <decision/commitment from meeting>." |
 | User needs to chase someone else's action | "Follow up with <attendee> on <their action item> by <date> — they committed in the meeting and it blocks <next step>." |
-| Decision was made, needs to be operationalized | "Tell <stakeholder> about the decision to <X> today — they need to know before <next downstream event>." |
+| Decision was made, needs a first real step | "Tell <stakeholder> about the decision to <X> today — they need to know before <next downstream event>." |
 | Meeting flagged an open question | "Get an answer on <open question> from <best source> by <date> — it blocks the decision on <Y>." |
 
-✅ "⚡ NEXT MOVE: Send Sarah the revised pricing deck by Wednesday EOD — you committed to it at 14:32 and it gates the contract decision."
+✅ "⚡ NEXT MOVE: Send Sarah the revised pricing deck by Wednesday EOD. Why: You committed to it at 14:32 and it gates the contract decision."
 ❌ "⚡ NEXT MOVE: Review the action items and follow up." (no owner, no specific action, no timing — fails the rule)
+
+### Validation pattern
+The block MUST match:
+`⚡ NEXT MOVE: .+ .+ .+\n   Why: .+`
+
+If it doesn't match, the skill output is incomplete — regenerate.

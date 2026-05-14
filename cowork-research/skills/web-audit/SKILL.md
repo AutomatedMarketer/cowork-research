@@ -52,20 +52,36 @@ Direct, actionable, scannable. Each recommendation is one bullet. No essays. The
 
 ## Self-improvement close (Foundation B)
 
-After the audit is written, ask the user ONE question:
+After delivering the main output + Next Move block, ask:
 
-> "Did this audit land? What would have made it 10% better?"
+> "What would've made this 10% better?"
 
-- Append the user's answer as a one-line entry to `projects/research/memory.md` (append-only, never overwrite). Format: `<YYYY-MM-DD> /web-audit on <domain> — <user's one-line feedback>`
-- Scan `projects/research/memory.md` for recurring complaints. If the same complaint shows up 3+ times (e.g., "too many minor-severity items, hide them" three runs in a row), append a flag line: `flag: web-audit skill — <pattern>, consider revising SKILL.md`
-- Do NOT edit SKILL.md yourself. Surface the flag to the user; they decide if/when to revise.
+Accept a one-line answer. Then:
+
+1. Append to `projects/research/memory.md`:
+   ```
+   <YYYY-MM-DD> | /web-audit | <answer verbatim>
+   ```
+
+2. Read `memory.md` and check if any pattern recurs 3+ times for `/web-audit`. Patterns matching by:
+   - Substring overlap >= 60% with prior entries
+   - Same keyword (e.g., "minor", "severity", "checklist", "Firecrawl", "hero", "CTA")
+
+3. If recurrence detected:
+   - Surface: "I've seen this 3+ times. Want me to update `/web-audit` itself?"
+   - If yes → draft change to `projects/research/skill-improvements.md` in this format:
+     ```
+     | /web-audit | <pattern> | <first_seen_date> | <recurrence_count> | <suggested_change> | <reviewed: no> |
+     ```
+
+4. If no recurrence → silent. No noise.
 
 ## Actionable close (Foundation C)
 
 End every run with this exact block (the `⚡ NEXT MOVE:` string is canonical — caps, leading lightning emoji, colon, space):
 
 ```
-⚡ NEXT MOVE: <single highest-leverage CRO fix> <ship by when>
+⚡ NEXT MOVE: <Subject> <Verb> <Timing>
    Why: <one-sentence reason — usually severity + expected lift>
 ```
 
@@ -82,5 +98,11 @@ The Next Move MUST be the SINGLE highest-leverage fix from the audit — not a l
 | No social proof above the fold | "Add a 1-line proof bar (logos or stat) under the hero by end of week — biggest credibility gap." |
 | Form has too many fields | "Cut form fields from <N> to <M> this week — drop everything not strictly required for the next step." |
 
-✅ "⚡ NEXT MOVE: Rewrite the hero headline on acme.com before Friday — current copy doesn't name the ICP or the outcome, costing the most pageviews of any single fix."
+✅ "⚡ NEXT MOVE: Rewrite the hero headline on acme.com before Friday. Why: Current copy doesn't name the ICP or the outcome, costing the most pageviews of any single fix."
 ❌ "⚡ NEXT MOVE: Address the critical findings from the audit." (no specific fix, no timing — fails the rule)
+
+### Validation pattern
+The block MUST match:
+`⚡ NEXT MOVE: .+ .+ .+\n   Why: .+`
+
+If it doesn't match, the skill output is incomplete — regenerate.
