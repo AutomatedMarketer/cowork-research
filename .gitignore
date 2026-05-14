@@ -1,0 +1,20 @@
+# OS artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor artifacts
+.vscode/
+.idea/
+*.swp
+*~
+
+# Build artifacts
+release/
+*.zip
+
+# Node (just in case)
+node_modules/
+
+# Logs
+*.log
