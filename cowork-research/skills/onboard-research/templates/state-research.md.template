@@ -1,0 +1,33 @@
+# `/onboard-research` State
+
+> Resumability tracker. Do not edit by hand — the wizard owns this file.
+
+plugin: cowork-research
+plugin_version: 0.1.0
+schema_version: v1
+install_complete: false
+
+## Phase progress
+
+| # | Phase | Status | Completed |
+|---|---|---|---|
+| 0 | Welcome + prereq check | pending | |
+| 1 | Read business + classify | pending | |
+| 2 | Connector recommendations | pending | |
+| 3 | Pick destination | pending | |
+| 4 | Calibrate preferences | pending | |
+| 5 | Update safe-zones | pending | |
+| 6 | First research live-fire | pending | |
+| 7 | Schedule cadence + 14-day calibration | pending | |
+
+## Detected business type
+
+(filled in Phase 1)
+
+## Recommended connectors
+
+(filled in Phase 2)
+
+## Calibration date
+
+(filled in Phase 7 — 14 days from install)

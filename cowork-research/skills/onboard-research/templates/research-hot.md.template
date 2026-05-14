@@ -1,0 +1,23 @@
+# Research Hot Cache
+
+> Tier-2 memory file for `cowork-research`. The assistant reads this at the start of every research-skill run. Keep small (~500 tokens). Run `/onboard-research` Phase 4 to refresh, or edit directly.
+
+## Topics I'm actively researching
+
+{{active_topics_top_5}}
+
+## Companies / brands I'm watching
+
+{{watch_list}}
+
+## Recent briefs (last 30 days)
+
+{{recent_brief_slugs}}
+
+## Open questions
+
+(Things you want the assistant to keep in mind. Update as you go.)
+
+## Last refreshed
+
+{{date}} — by `/onboard-research`

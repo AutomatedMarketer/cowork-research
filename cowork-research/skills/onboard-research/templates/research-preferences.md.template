@@ -1,0 +1,32 @@
+# Research Preferences
+
+> The wizard wrote this file based on your Phase 4 answers. Edit it any time. Re-run `/onboard-research` Phase 4 to redo via the interview.
+
+## Brief defaults
+
+- **Brief length:** {{brief_length}} words
+- **TLDR style:** {{tldr_style}}
+- **Citation style:** {{citation_style}}
+
+## Web-audit defaults
+
+- **Audit style:** {{audit_style}} (cro-only / brand-only / both)
+- **Output format:** bulleted recommendations
+
+## Meeting-recap defaults
+
+- **Recap depth:** {{recap_depth}} (executive / detailed / verbatim-with-quotes)
+- **Action-item callout:** always
+
+## Default destination
+
+- **Primary:** {{primary_destination}} (e.g. workspace `reference/research/`)
+- **Secondary fold-back:** {{fold_back_destination}} (e.g. vault `<area>/wiki/sources/research/` or `none`)
+
+## Cadence
+
+- **Weekly competitive scan:** {{weekly_scan_day_time}}
+- **Monthly research review:** {{monthly_review_day}}
+- **14-day calibration check:** {{calibration_date}}
+
+Last updated by `/onboard-research` Phase 4 on {{date}}.
