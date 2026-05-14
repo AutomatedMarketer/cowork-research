@@ -1,0 +1,13 @@
+{
+  "name": "cowork-research",
+  "owner": "AutomatedMarketer",
+  "description": "Research & competitive intelligence engine. Brand briefs, web audits, meeting recaps. Self-onboarding wizard with per-business-type connector recommendations.",
+  "homepage": "https://github.com/AutomatedMarketer/cowork-research",
+  "version": "0.1.0",
+  "plugins": [
+    {
+      "name": "cowork-research",
+      "source": "./cowork-research"
+    }
+  ]
+}

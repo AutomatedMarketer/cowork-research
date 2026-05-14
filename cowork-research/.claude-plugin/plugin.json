@@ -1,0 +1,16 @@
+{
+  "name": "cowork-research",
+  "version": "0.1.0",
+  "description": "Research engine for the Cowork AI OS. Wire your assistant for brand briefs, web audits, and meeting recaps with per-business-type connector recommendations. Soft-depends on cowork-ai-os for identity files.",
+  "author": {
+    "name": "Nuno Tavares",
+    "url": "https://github.com/AutomatedMarketer"
+  },
+  "license": "MIT",
+  "skills": [
+    "skills/onboard-research",
+    "skills/research-brief",
+    "skills/web-audit",
+    "skills/meeting-recap"
+  ]
+}
