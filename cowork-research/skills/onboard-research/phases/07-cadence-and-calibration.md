@@ -116,15 +116,94 @@ Phase 7 is complete when ALL of these are true:
 
 ## After Phase 7 — wizard wrap-up
 
-This is the final phase. After verification:
+This is the final phase. After verification, run the wrap-up in this exact order:
 
-1. Mark `install_complete: true` in `state-research.md`
-2. Append to `<workspace>/about-me/memory.md`: `<ISO date>: cowork-research v0.1.0 onboarded for <business-type>`
-3. Tell the user (in voice):
+### Step 1 — Mark install complete
+
+- Mark `install_complete: true` in `state-research.md`
+- Append to `<workspace>/about-me/memory.md`: `<ISO date>: cowork-research v0.1.0 onboarded for <business-type>`
+
+### Step 2 — Self-improvement close (Foundation B — wizard variant)
+
+The wizard runs once per onboarding, but the self-improve loop still fires once at wrap-up so we learn what the wizard routinely fails at across runs.
+
+After Step 1 completes, ask the user this exact question (one line, plain English):
+
+> *"What would've made this onboarding 10% better?"*
+
+Accept a one-line answer. Then:
+
+1. Append to `<workspace>/projects/research/memory.md`:
+   ```
+   <YYYY-MM-DD> | /onboard-research | <answer verbatim>
+   ```
+
+2. Read `memory.md` and check if any pattern recurs 3+ times for `/onboard-research`. Pattern matching:
+   - Substring overlap >= 60% with prior entries
+   - Same keyword (e.g., "Phase 2", "connector", "destination", "calibration", "demo", "too long")
+
+3. If recurrence detected:
+   - Surface: *"I've seen this 3+ times across onboarding runs. Want me to update `/onboard-research` itself?"*
+   - If yes → draft change to `<workspace>/projects/research/skill-improvements.md` in this format:
+     ```
+     | /onboard-research | <pattern> | <first_seen_date> | <recurrence_count> | <suggested_change> | <reviewed: no> |
+     ```
+
+4. If no recurrence → silent. No noise.
+
+### Step 3 — Build the ⚡ NEXT MOVE (Foundation C — business-type-aware)
+
+Pick the single highest-leverage research action the user should run NEXT, based on their `business_type` (set in Phase 1) and the specifics in `<workspace>/about-me/business-brain.md`.
+
+**Topic-extraction logic by business type** (mirrors Phase 6 demo logic, but picks a NEW topic — not the one we just used in the demo):
+
+| business_type | Scan business-brain.md for | Pick | Timing | Why-line tied to |
+|---|---|---|---|---|
+| `coach` | thought-leaders, methodologies admired, upcoming workshop/cohort/launch | thought-leader name | "tomorrow morning" | upcoming workshop / cohort / launch |
+| `agency-owner` | prospect URLs, top competitors, named pitch targets | prospect URL or top competitor | "tomorrow before your sales call" | CRO weaknesses to lead with in pitch |
+| `creator` | trends, content topics, niche themes | trend topic | "today" | next video script foundation |
+| `course-creator` | competing courses, methodologies in same category | competing course | "this week" | next course chapter outline |
+| `solopreneur-smb` | suppliers, partners, market trends | key supplier or partner | "this week" | leverage point in next negotiation |
+| `sales-led-b2b` | target ICP companies, named accounts | target ICP company | "tomorrow before your first outreach" | letting you open with their priorities, not your script |
+
+**Picking rule (avoid duplicating the Phase 6 demo):**
+- If the topic you'd pick matches `first_brief_topic` in `state-research.md`, pick the SECOND-best candidate from business-brain.md instead
+- If business-brain.md only surfaces one candidate, point the user to the next utility skill that fits their business type (e.g., `/web-audit` for agency-owner if no second prospect URL)
+
+**Format the block exactly like this** (canonical — caps, leading lightning emoji, colon, space):
+
+```
+⚡ NEXT MOVE: <Subject> <Verb> <Timing>
+   Why: <one-sentence reason tied to user's stated goal/ICP>
+```
+
+**Examples by business type:**
+
+- ✅ coach: `⚡ NEXT MOVE: Run /research-brief on Brené Brown tomorrow morning. Why: That's the brief that'll most directly inform your June vulnerability cohort.`
+- ✅ agency-owner: `⚡ NEXT MOVE: Run /web-audit on acme-corp.com tomorrow before your sales call. Why: It surfaces 3 CRO weaknesses you can lead with in your pitch.`
+- ✅ creator: `⚡ NEXT MOVE: Run /research-brief on the AI-agents trend today. Why: The brief becomes your next video script foundation.`
+- ✅ course-creator: `⚡ NEXT MOVE: Run /research-brief on Hormozi's $100M Offers course this week. Why: It gates your next course chapter outline.`
+- ✅ solopreneur-smb: `⚡ NEXT MOVE: Run /research-brief on Alibaba supplier QingFeng this week. Why: Names the leverage point in your next negotiation.`
+- ✅ sales-led-b2b: `⚡ NEXT MOVE: Run /research-brief on Stripe tomorrow before your first outreach. Why: Lets you open with their actual priorities, not your script.`
+- ❌ `⚡ NEXT MOVE: Try the other skills.` (no subject, no timing, no specificity — REJECT)
+
+### Validation pattern (do not skip)
+
+The block MUST match:
+`⚡ NEXT MOVE: .+ .+ .+\n   Why: .+`
+
+If it doesn't match, the wizard wrap-up is incomplete — regenerate the block before showing the final message.
+
+### Step 4 — Show the final wrap-up message
+
+Lead with the ⚡ NEXT MOVE, then the rest of the wrap-up:
 
 > *"Wizard done. You're set up.*
 >
-> *What you can do now:*
+> *⚡ NEXT MOVE: [the block from Step 3]*
+> *   Why: [the why-line from Step 3]*
+>
+> *Other skills you can use now:*
 > *- `/research-brief <topic>` — generate a brief on anything*
 > *- `/web-audit <url>` — CRO + competitive audit of any page*
 > *- `/meeting-recap <fathom-url>` — pull decisions, actions, and quotes from a Fathom call*

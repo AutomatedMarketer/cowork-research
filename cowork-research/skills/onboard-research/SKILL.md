@@ -64,10 +64,14 @@ After each phase's verification passes:
 
 ## After all phases complete
 
-1. Mark `install_complete: true` in `state-research.md`
-2. Append to `about-me/memory.md`: `YYYY-MM-DD: cowork-research v0.1.0 onboarded for <business-type>`
-3. Tell user: *"Wizard done. Use `/research-brief`, `/web-audit`, `/meeting-recap`. See lesson 02 for the playbook. I've scheduled a 14-day calibration check for <date>."*
-4. Schedule a `/audit` re-run (cowork-ai-os) for 14 days from now and tell the user the date
+The full wrap-up sequence lives in [`phases/07-cadence-and-calibration.md`](phases/07-cadence-and-calibration.md) under "After Phase 7 — wizard wrap-up". It runs (in order):
+
+1. Mark `install_complete: true` in `state-research.md` + append to `about-me/memory.md`
+2. **Self-improvement close** — ask "What would've made this onboarding 10% better?" → append to `projects/research/memory.md` → flag `/onboard-research` for revision if 3+ recurrence
+3. **⚡ NEXT MOVE block** — business-type-aware, picks one specific research action from `business-brain.md` (skipping the Phase 6 demo topic) — must pass the canonical regex `⚡ NEXT MOVE: .+ .+ .+\n   Why: .+`
+4. Final wrap-up message (leads with the ⚡ NEXT MOVE, lists the other skills, names the 14-day calibration date)
+
+The 14-day calibration check itself is scheduled in Phase 7 Step 4.
 
 ## Hard rules
 
