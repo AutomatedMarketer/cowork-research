@@ -1,7 +1,7 @@
 # cowork-research
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-0.1.0-brightgreen.svg?style=flat-square)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.2.0-brightgreen.svg?style=flat-square)](./CHANGELOG.md)
 [![Platform: Mac · Windows · Linux](https://img.shields.io/badge/platform-Mac%20%C2%B7%20Windows%20%C2%B7%20Linux-blue.svg?style=flat-square)](#install)
 [![Built for Claude Cowork](https://img.shields.io/badge/built%20for-Claude%20Cowork-7C3AED.svg?style=flat-square)](https://claude.com/product/claude-code)
 
@@ -29,16 +29,17 @@ Same pattern, two voices. Both point at the same thing: **a research workflow wh
 
 ---
 
-## What it ships (4 skills)
+## What it ships (5 skills)
 
 | Skill | Slash | What it does |
 |---|---|---|
 | **Onboard wizard** | `/onboard-research` | 7-phase install (~12 min). Reads your business context, classifies into 1 of 6 business types, recommends top 3 connectors for your type, picks a default research destination, calibrates your preferences. State.md resumable. |
 | **Research brief** | `/research-brief` | 600-word executive brief + 5-bullet TLDR on any topic, competitor, account, methodology, or library. Cited. Plan-then-approve writes. |
+| **Save clip** *(new in v0.2)* | `/save-clip` | Paste any URL — get a clean-markdown clip in your research library with frontmatter (source URL, accessed date, ICP-matched tags). Firecrawl primary + Playwright fallback for login-walled pages. The library compounds. |
 | **Web audit** | `/web-audit` | CRO + competitive audit of any URL. Bulleted recommendations grouped by severity (block / fix / consider). Read-only on web. |
 | **Meeting recap** | `/meeting-recap` | Fathom transcript → decisions + action items + open questions + notable quotes. Paste a Fathom URL or call ID and it does the rest. |
 
-That's the whole surface. Four commands. Run `/onboard-research` once and the wizard wires the rest.
+That's the whole surface. Five commands. Run `/onboard-research` once and the wizard wires the rest.
 
 ---
 
@@ -113,17 +114,21 @@ No MCP server required for the plugin itself — Cowork has filesystem access. T
 
 ---
 
-## What's NOT in v0.1
+## Shipped in v0.2
 
-Deferred to v0.2+ to keep the initial release tight:
+- ✅ **`/save-clip`** browser clipper — paste any URL → clean markdown in `reference/research/clips/`. Firecrawl primary + Playwright fallback. Plan-then-approve. ICP-matched tags from `business-brain.md`. The capture step that turns the library into a flywheel.
+
+## What's NOT in v0.2
+
+Deferred to v0.3+ to keep this release focused:
 
 - ❌ **`/competitive-monitor`** — scheduled re-runs of audits with diff detection. Phase D in the roadmap.
-- ❌ **`/save-clip`** browser clipper / Chrome extension — capture from any tab into your research library.
 - ❌ **`/research-query`** — natural-language search across `reference/research/`.
-- ❌ **Fireflies MCP support** — Fathom-only in v0.1; Fireflies is a swap-in for v0.2.
-- ❌ **Notion rich-block writing** — plain markdown only in v0.1; rich blocks in v0.2.
+- ❌ **Fireflies MCP support** — Fathom-only in v0.2; Fireflies is a swap-in for v0.3.
+- ❌ **Notion rich-block writing** — plain markdown only in v0.2; rich blocks in v0.3.
 - ❌ **VidIQ-deep skill** (`/youtube-competitive`) — for now use the existing VidIQ MCP tools directly.
-- ❌ **Stop-hook auto-extract-to-research-library** — v0.2 will fold session learnings back into `reference/research/` automatically.
+- ❌ **Stop-hook auto-extract-to-research-library** — v0.3 will fold session learnings back into `reference/research/` automatically.
+- ❌ **Chrome extension integration** — paste-URL workflow only in v0.2.
 - ❌ **Custom Cowork MCP server** — once we've watched 20+ users hit specific friction, we'll ship `research_get`, `research_search`, `index_resolve` as first-class MCP tools.
 
 ---

@@ -36,7 +36,7 @@ Read `_aibos/state-research.md`:
 
 - **Doesn't exist** → create from [`../templates/state-research.md.template`](../templates/state-research.md.template). Set:
   - `started_at: <ISO timestamp>`
-  - `plugin_version: 0.1.0`
+  - `plugin_version: 0.2.0`
   - `current_phase: 0`
   - `next_pending_phase: 1`
   - `install_complete: false`

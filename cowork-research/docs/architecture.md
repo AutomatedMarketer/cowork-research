@@ -1,6 +1,12 @@
-# cowork-research — architecture (v0.1.0)
+# cowork-research — architecture (v0.2.0)
 
 Internal contributor doc. For the user-facing pitch see the [root README](../../README.md).
+
+## v0.2.0 — Research Engine + Browser Clipper
+
+The v0.2.0 surface is **5 skills** (1 wizard + 4 operational) and **6 personalization profiles** (one per business type). v0.2.0 added `/save-clip` — the browser clipper that turns any URL into a clean-markdown entry in `reference/research/clips/`, with Firecrawl as the primary scraper and Playwright as the fallback for login-walled pages. Plan-then-approve, frontmatter with source URL + tags + accessed date, append-only updates to the index and memory. The library only compounds if you keep feeding it.
+
+Also in v0.2.0: catalog accuracy fixes (Context7 + Playwright MCP namespace doubled-prefix correction; Firecrawl/Perplexity/Fathom/VidIQ/Notion/Google Drive auth-required notes — Cowork prompts for API key or OAuth on first use of each).
 
 ## v0.1.0 — Research Engine for the Cowork AI OS
 
@@ -43,7 +49,7 @@ Empirically (mirrors cowork-obsidian's measurements): a typical query touches ~3
 **What the wizard appends (append-only, never rewrites):**
 
 - `about-me/connections.md` — new connector entries the user opted into during Phase 2
-- `about-me/memory.md` — `YYYY-MM-DD: cowork-research v0.1.0 onboarded for <business-type>`
+- `about-me/memory.md` — `YYYY-MM-DD: cowork-research v0.2.0 onboarded for <business-type>`
 - `safe-zones.md` — adds `reference/research/` and `projects/research/` to the skill scope
 
 **Prereq check (`checks/prereq-cowork-ai-os.md`):**
@@ -133,14 +139,15 @@ State template lives at `skills/onboard-research/templates/state-research.md.tem
 
 Tracked here so contributors know what's intentionally NOT in v0.1:
 
-- **`/competitive-monitor`** (v0.2) — scheduled re-runs of `/web-audit` against tracked URLs with diff detection. Pairs with a Stop-hook.
-- **`/save-clip`** (v0.2) — browser clipper / Chrome extension capturing any tab into the research library.
-- **`/research-query`** (v0.2) — natural-language search across `reference/research/`. Uses index Tier 3 + selective Tier 4 expansion.
-- **Stop-hook auto-extract** (v0.2) — fold session learnings into `reference/research/` automatically. Pattern from `cowork-obsidian v0.6` roadmap.
-- **Custom Cowork MCP server** (v0.3+) — `research_get`, `research_search`, `index_resolve` as first-class MCP tools. Ships once we've watched 20+ users hit specific friction.
-- **Fireflies MCP support** (v0.2) — swap-in for Fathom.
-- **Notion rich-block writing** (v0.2) — plain markdown only in v0.1.
-- **VidIQ-deep skill (`/youtube-competitive`)** (v0.3+) — for now use VidIQ MCP tools directly via `/research-brief`.
+- **`/competitive-monitor`** (v0.3+) — scheduled re-runs of `/web-audit` against tracked URLs with diff detection. Pairs with a Stop-hook.
+- **`/research-query`** (v0.3+) — natural-language search across `reference/research/`. Uses index Tier 3 + selective Tier 4 expansion.
+- **Stop-hook auto-extract** (v0.3+) — fold session learnings into `reference/research/` automatically. Pattern from `cowork-obsidian v0.6` roadmap.
+- **Custom Cowork MCP server** (v0.4+) — `research_get`, `research_search`, `index_resolve` as first-class MCP tools. Ships once we've watched 20+ users hit specific friction.
+- **Fireflies MCP support** (v0.3+) — swap-in for Fathom.
+- **Notion rich-block writing** (v0.3+) — plain markdown only in v0.2.
+- **VidIQ-deep skill (`/youtube-competitive`)** (v0.4+) — for now use VidIQ MCP tools directly via `/research-brief`.
+
+**Shipped in v0.2.0** (no longer deferred): `/save-clip` browser clipper.
 
 ---
 
@@ -170,7 +177,7 @@ cowork-research/                          # repo root
 │   └── cowork-research-v0.1.0.zip        # produced by build-release-zip.sh
 └── cowork-research/                      # the actual plugin
     ├── .claude-plugin/
-    │   └── plugin.json                   # version: 0.1.0
+    │   └── plugin.json                   # version: 0.2.0
     ├── docs/
     │   └── architecture.md               # this file
     └── skills/
@@ -184,6 +191,9 @@ cowork-research/                          # repo root
         ├── research-brief/
         │   ├── SKILL.md
         │   └── templates/brief-template.md
+        ├── save-clip/                        # v0.2.0
+        │   ├── SKILL.md
+        │   └── templates/clip-template.md
         ├── web-audit/
         │   ├── SKILL.md
         │   └── templates/web-audit-checklist.md

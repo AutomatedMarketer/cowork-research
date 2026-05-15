@@ -3,7 +3,7 @@
 > Resumability tracker. Do not edit by hand — the wizard owns this file.
 
 plugin: cowork-research
-plugin_version: 0.1.0
+plugin_version: 0.2.0
 schema_version: v1
 install_complete: false
 

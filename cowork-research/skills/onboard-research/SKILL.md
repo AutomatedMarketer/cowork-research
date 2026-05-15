@@ -1,7 +1,7 @@
 ---
 name: onboard-research
 slug: /onboard-research
-version: 0.1.0
+version: 0.2.0
 plugin: cowork-research
 description: 7-phase install wizard for the cowork-research engine. Reads about-me/business-brain.md from cowork-ai-os, classifies into one of 6 business types, recommends top 3 research connectors per type (delegates to cowork-ai-os v0.10.2's /browse-connectors which live-fetches the directory), picks default destination (workspace / vault / Notion), calibrates research preferences, schedules cadence + 14-day calibration check. State.md resumable. Inspired by Karpathy's LLM Wiki framing and Corey Ganim's "Cowork as employee" pattern.
 triggers:
@@ -13,7 +13,7 @@ triggers:
   - begin research setup
 ---
 
-# /onboard-research — v0.1.0
+# /onboard-research — v0.2.0
 
 The setup wizard for cowork-research. 7 phases. ~12 minutes. Resumable.
 

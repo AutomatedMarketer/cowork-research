@@ -164,7 +164,7 @@ If it doesn't match, regenerate the block before advancing to Step 2.
 
 Append to `<workspace>/about-me/memory.md`:
 ```
-<ISO date>: cowork-research v0.1.0 onboarded for <business-type>
+<ISO date>: cowork-research v0.2.0 onboarded for <business-type>
 ```
 
 This is a passive log entry, not a state flag — safe to write before the user sees the wrap-up.

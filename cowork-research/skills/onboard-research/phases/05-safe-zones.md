@@ -48,13 +48,13 @@ In that case: create a minimal `safe-zones.md` with a header noting it was start
 ```markdown
 ## <ISO timestamp> — added by cowork-research /onboard-research Phase 5
 
-### Research paths (cowork-research v0.1.0)
+### Research paths (cowork-research v0.2.0)
 
 - path: reference/research/
   reads: act
   writes: ask
   destructive: blocked
-  scoped_to: cowork-research skills (research-brief, web-audit, meeting-recap)
+  scoped_to: cowork-research skills (research-brief, save-clip, web-audit, meeting-recap)
 
 - path: projects/research/
   reads: act

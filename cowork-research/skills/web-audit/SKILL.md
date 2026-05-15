@@ -1,7 +1,7 @@
 ---
 name: web-audit
 slug: /web-audit
-version: 0.1.0
+version: 0.2.0
 plugin: cowork-research
 description: CRO + competitive audit of any URL. Bulleted recommendations against the web-audit-checklist.md heuristics. Reads about-me/business-brain.md (for ICP context). Uses Firecrawl + Playwright (for login-walled pages). Read-only on the web — never submits forms or clicks destructive actions. Lands in reference/research/audits/<domain>-<date>.md.
 triggers:
@@ -12,7 +12,7 @@ triggers:
   - audit url
 ---
 
-# /web-audit — v0.1.0
+# /web-audit — v0.2.0
 
 CRO + competitive audit of any URL. Bulleted recommendations.
 
