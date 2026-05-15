@@ -5,7 +5,7 @@
 [![Platform: Mac · Windows · Linux](https://img.shields.io/badge/platform-Mac%20%C2%B7%20Windows%20%C2%B7%20Linux-blue.svg?style=flat-square)](#install)
 [![Built for Claude Cowork](https://img.shields.io/badge/built%20for-Claude%20Cowork-7C3AED.svg?style=flat-square)](https://claude.com/product/claude-code)
 
-A [Claude Cowork](https://claude.com/product/claude-code) plugin that turns your assistant into a **full-time research analyst** — brand briefs, web audits, and meeting recaps that compound across every business decision you make.
+A [Claude Cowork](https://claude.com/product/claude-code) plugin (also runs in Claude Code) that turns your assistant into a **full-time research analyst** — brand briefs, web audits, and meeting recaps that compound across every business decision you make.
 
 > **Stop pasting links into ChatGPT. Your assistant already knows your business, your ICP, and your offer. Give it the right tools and it researches in your voice.**
 
@@ -150,15 +150,28 @@ If you've watched ChatGPT forget your business context for the 50th time, or you
 
 ### Mac
 
-<details>
-<summary><b>Mac install (click to expand)</b></summary>
+## ✅ Mac install (recommended): zip upload
 
-1. Download `cowork-research.zip` from the [latest release](https://github.com/AutomatedMarketer/cowork-research/releases/latest)
-2. Open Claude Desktop → click your name (top right) → **Settings**
-3. **Customize** → **Browse plugins** → upload the zip
-4. Open a fresh Cowork task → run `/onboard-research`
+This is the recommended install path for all Mac users. It bypasses Anthropic's open Cowork-on-macOS bugs ([#26951](https://github.com/anthropics/claude-code/issues/26951), [#28125](https://github.com/anthropics/claude-code/issues/28125)) and works on every Cowork build that supports plugin uploads. Workaround confirmed by users in [#39400](https://github.com/anthropics/claude-code/issues/39400).
 
-</details>
+1. Download the latest **`cowork-research-v0.2.0.zip`** from the [Releases page](https://github.com/AutomatedMarketer/cowork-research/releases/latest). **Don't extract it.** Keep the file as a single `.zip`.
+
+   > ⚠️ **Do NOT use the green "Download ZIP" button on the repo's main page.** That button wraps the repo in an outer folder (`cowork-research-main/`), which double-nests the plugin and breaks Cowork's validator. Always grab the zip from the **Releases page → Assets** section.
+2. Open Claude Cowork (the middle tab in Claude Desktop).
+3. Go to **Customize** → **Browse plugins** → look for the option to **upload a custom plugin file**
+   > *Menu wording may vary slightly between Cowork versions — look for an "Upload", "Custom plugin", or "From file" option.*
+4. Drag in the zip. Wait for confirmation.
+5. **Open a brand new Cowork task** (skills load on session start, not retroactively).
+6. Type `/onboard-research` and follow the wizard.
+
+> **Why is this the recommended Mac path?** Anthropic closed [#27196](https://github.com/anthropics/claude-code/issues/27196) ("All Anthropic plugins fail in Cowork on macOS") as **not planned** — they don't currently intend to fix the marketplace path on Mac. The zip-upload path is effectively the supported install method on macOS going forward.
+
+| Issue | Fix |
+|---|---|
+| Can't find "Upload" / "Custom plugin" option | Look for "From file" / "Local plugin" / "Add manually". If genuinely absent, your Cowork version is older than the upload feature — quit, update Claude Desktop, relaunch. |
+| Upload rejects the file | Confirm the file extension is `.zip` (not `.plugin`). Re-download directly from the Release page; don't rename. |
+| Plugin uploads but `/onboard-research` does nothing | Open a **brand new** Cowork task. Skills load on session start, not retroactively. |
+| Plugin disappears after restart | That's [#38429](https://github.com/anthropics/claude-code/issues/38429) — Anthropic-side persistence bug. Re-upload the zip after restart. |
 
 ### Windows
 
