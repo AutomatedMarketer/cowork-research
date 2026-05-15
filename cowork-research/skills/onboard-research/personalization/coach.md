@@ -24,3 +24,5 @@ Coaches think in transformations and frameworks. Use language like "your client'
 - "Compare my coaching method to [thought-leader they admire]"
 - "What does [competitor coach] charge and how do they package?"
 - "What's [methodology user uses] and where does it fall short?"
+
+**Quick-capture habit (post-onboarding):** Use `/save-clip` whenever you find an article worth keeping. The library compounds over weeks.

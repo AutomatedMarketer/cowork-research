@@ -180,6 +180,7 @@ Lead with the ⚡ NEXT MOVE block from Step 1, then the rest:
 >
 > *Other skills you can use now:*
 > *- `/research-brief <topic>` — generate a brief on anything*
+> *- `/save-clip <url>` — clip any article into your research library*
 > *- `/web-audit <url>` — CRO + competitive audit of any page*
 > *- `/meeting-recap <fathom-url>` — pull decisions, actions, and quotes from a Fathom call*
 >

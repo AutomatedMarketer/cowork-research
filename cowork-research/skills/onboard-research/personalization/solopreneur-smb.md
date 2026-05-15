@@ -24,3 +24,5 @@ Solopreneurs wear every hat. Use language like "this week's most-pressing thing,
 - "Brief on [a partner the user mentioned]"
 - "Audit [the user's homepage]"
 - "Recap of [the user's last customer call]"
+
+**Quick-capture habit (post-onboarding):** Use `/save-clip` whenever you find an article worth keeping. The library compounds over weeks.

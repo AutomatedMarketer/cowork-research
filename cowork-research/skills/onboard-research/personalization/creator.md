@@ -24,3 +24,5 @@ Creators think in algorithms, hooks, and content cycles. Use language like "your
 - "What's working on [competitor channel] in the last 30 days?"
 - "Pull the top 5 outliers from [competitor] and tell me their hooks"
 - "What hooks are trending in [user's niche] this week?"
+
+**Quick-capture habit (post-onboarding):** Use `/save-clip` whenever you find an article worth keeping. The library compounds over weeks.

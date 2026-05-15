@@ -23,6 +23,10 @@ If the user says yes, then for each missing connector: *"Install **[connector na
 >
 > *Second, I'm matching against your business type so you don't drown in 50 options. A coach needs different research tools than an agency owner."*
 
+## Quick capture: /save-clip works alongside Firecrawl
+
+`/save-clip` is the browser clipper that ships with cowork-research v0.2+. As you browse, run `/save-clip <url>` to drop articles into your research library — clean markdown, your suggested tags, ready to be cited in future briefs. It uses Firecrawl as the primary scraper and Playwright as the fallback for login-walled pages. **Recommended for all 6 business types** — the library only compounds if you keep feeding it.
+
 ## Logic
 
 ### Step 1 — Delegate to /browse-connectors (live-fetch)

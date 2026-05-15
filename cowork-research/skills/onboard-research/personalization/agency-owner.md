@@ -24,3 +24,5 @@ Agency owners think in deals and pipeline. Use language like "your prospect," "t
 - The user's own agency homepage (the meta-audit)
 - Their top competitor's pricing page
 - A recent prospect's homepage (most useful — actionable next-day)
+
+**Quick-capture habit (post-onboarding):** Use `/save-clip` whenever you find an article worth keeping. The library compounds over weeks.

@@ -24,3 +24,5 @@ Course creators think in students, modules, and outcomes. Use language like "you
 - "Compare [competitor course] to mine — price, modules, bonuses"
 - "What's missing in [niche] that I could teach?"
 - "Pull the top YouTube videos in [niche] and what they don't cover"
+
+**Quick-capture habit (post-onboarding):** Use `/save-clip` whenever you find an article worth keeping. The library compounds over weeks.

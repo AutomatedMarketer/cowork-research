@@ -24,3 +24,5 @@ Sales-led B2B thinks in accounts, pipeline, and closing. Use language like "your
 - "Brief on [target account in user's pipeline]"
 - "What's [target account] hiring for right now? (signal of priorities)"
 - "Pull every news mention of [target account] in the last 90 days"
+
+**Quick-capture habit (post-onboarding):** Use `/save-clip` whenever you find an article worth keeping. The library compounds over weeks.

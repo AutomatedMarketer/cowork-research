@@ -68,7 +68,7 @@ The full wrap-up sequence lives in [`phases/07-cadence-and-calibration.md`](phas
 
 1. **Build the ⚡ NEXT MOVE block** — business-type-aware, picks one specific research action from `business-brain.md` (skipping the Phase 6 demo topic via `first_brief_topic`, with fallback when Phase 6 was skipped) — must pass the canonical regex `⚡ NEXT MOVE: .+ .+ .+\n   Why: .+`
 2. **Append onboarding-complete log line** to `about-me/memory.md` (passive log, not a state flag)
-3. **Show the final wrap-up message** — leads with the ⚡ NEXT MOVE, lists the other skills, names the 14-day calibration date in plain English
+3. **Show the final wrap-up message** — leads with the ⚡ NEXT MOVE, lists the **4 utility skills** (`/research-brief`, `/save-clip`, `/web-audit`, `/meeting-recap`), names the 14-day calibration date in plain English
 4. **Self-improvement close** — ask "What would've made this onboarding 10% better?" → append to `projects/research/memory.md` → flag `/onboard-research` for revision if 3+ recurrence
 5. **Mark `install_complete: true`** in `state-research.md` AS THE LAST ACTION
 
