@@ -6,12 +6,5 @@
     "name": "Nuno Tavares",
     "url": "https://github.com/AutomatedMarketer"
   },
-  "license": "MIT",
-  "skills": [
-    "skills/onboard-research",
-    "skills/research-brief",
-    "skills/save-clip",
-    "skills/web-audit",
-    "skills/meeting-recap"
-  ]
+  "license": "MIT"
 }
