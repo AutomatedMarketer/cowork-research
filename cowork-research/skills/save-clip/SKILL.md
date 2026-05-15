@@ -1,10 +1,7 @@
 ---
 name: save-clip
-slug: /save-clip
-version: 0.2.0
-plugin: cowork-research
-description: Clip any URL into your research library as clean markdown. Reads about-me/business-brain.md for tag suggestions. Uses Firecrawl primary + Playwright fallback for login-walled pages. Lands in reference/research/clips/<slug>.md with frontmatter (source URL, accessed date, tags, user note). Plan-then-approve writes. Optional vault fold-back per preferences.
-triggers:
+description: "Clip any URL into your research library as clean markdown. Reads about-me/business-brain.md for tag suggestions. Uses Firecrawl primary + Playwright fallback for login-walled pages. Lands in reference/research/clips/<slug>.md with frontmatter (source URL, accessed date, tags, user note). Plan-then-approve writes. Optional vault fold-back per preferences."
+when_to_use:
   - /save-clip
   - clip this
   - save this article

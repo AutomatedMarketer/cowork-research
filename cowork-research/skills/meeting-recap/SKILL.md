@@ -1,10 +1,7 @@
 ---
 name: meeting-recap
-slug: /meeting-recap
-version: 0.2.0
-plugin: cowork-research
-description: Pull a Fathom transcript and extract decisions, action items, open questions, and notable quotes. Reads about-me/business-brain.md (for ICP context — what the user cares about). Uses Fathom MCP. Lands in reference/research/meetings/<date>-<title>.md. Optionally drafts to chosen destination.
-triggers:
+description: "Pull a Fathom transcript and extract decisions, action items, open questions, and notable quotes. Reads about-me/business-brain.md (for ICP context — what the user cares about). Uses Fathom MCP. Lands in reference/research/meetings/<date>-<title>.md. Optionally drafts to chosen destination."
+when_to_use:
   - /meeting-recap
   - recap this meeting
   - pull fathom recap

@@ -1,10 +1,7 @@
 ---
 name: research-brief
-slug: /research-brief
-version: 0.2.0
-plugin: cowork-research
-description: Generate a 600-word executive brief + 5-bullet TLDR on any topic, person, company, or URL. Reads about-me/business-brain.md (for ICP/positioning context) + reference/_research-hot.md (for what user is currently researching). Uses Perplexity Ask + Firecrawl. Plan-then-approve writes. Lands in reference/research/briefs/<slug>.md. Optionally folds to vault or Notion based on research-preferences.md.
-triggers:
+description: "Generate a 600-word executive brief + 5-bullet TLDR on any topic, person, company, or URL. Reads about-me/business-brain.md (for ICP/positioning context) + reference/_research-hot.md (for what user is currently researching). Uses Perplexity Ask + Firecrawl. Plan-then-approve writes. Lands in reference/research/briefs/<slug>.md. Optionally folds to vault or Notion based on research-preferences.md."
+when_to_use:
   - /research-brief
   - research brief on
   - write a brief on
