@@ -116,48 +116,15 @@ Phase 7 is complete when ALL of these are true:
 
 ## After Phase 7 — wizard wrap-up
 
-This is the final phase. After verification, run the wrap-up in this exact order:
+This is the final phase. Run the wrap-up in this exact order. **Do not re-shuffle.** The order is load-bearing: `install_complete: true` is the LAST action so a crash anywhere mid-wrap-up correctly leaves state as "not complete" and the next `/onboard-research` invocation resumes the wrap-up.
 
-### Step 1 — Mark install complete
+### Step 1 — Build the ⚡ NEXT MOVE block (Foundation C — business-type-aware)
 
-- Mark `install_complete: true` in `state-research.md`
-- Append to `<workspace>/about-me/memory.md`: `<ISO date>: cowork-research v0.1.0 onboarded for <business-type>`
-
-### Step 2 — Self-improvement close (Foundation B — wizard variant)
-
-The wizard runs once per onboarding, but the self-improve loop still fires once at wrap-up so we learn what the wizard routinely fails at across runs.
-
-After Step 1 completes, ask the user this exact question (one line, plain English):
-
-> *"What would've made this onboarding 10% better?"*
-
-Accept a one-line answer. Then:
-
-1. Append to `<workspace>/projects/research/memory.md`:
-   ```
-   <YYYY-MM-DD> | /onboard-research | <answer verbatim>
-   ```
-
-2. Read `memory.md` and check if any pattern recurs 3+ times for `/onboard-research`. Pattern matching:
-   - Substring overlap >= 60% with prior entries
-   - Same keyword (e.g., "Phase 2", "connector", "destination", "calibration", "demo", "too long")
-
-3. If recurrence detected:
-   - Surface: *"I've seen this 3+ times across onboarding runs. Want me to update `/onboard-research` itself?"*
-   - If yes → draft change to `<workspace>/projects/research/skill-improvements.md` in this format:
-     ```
-     | /onboard-research | <pattern> | <first_seen_date> | <recurrence_count> | <suggested_change> | <reviewed: no> |
-     ```
-
-4. If no recurrence → silent. No noise.
-
-### Step 3 — Build the ⚡ NEXT MOVE (Foundation C — business-type-aware)
-
-Pick the single highest-leverage research action the user should run NEXT, based on their `business_type` (set in Phase 1) and the specifics in `<workspace>/about-me/business-brain.md`.
+Build the block now (don't display yet — Step 3 displays it). Pick the single highest-leverage research action the user should run NEXT, based on their `business_type` (set in Phase 1) and the specifics in `<workspace>/about-me/business-brain.md`.
 
 **Topic-extraction logic by business type** (mirrors Phase 6 demo logic, but picks a NEW topic — not the one we just used in the demo):
 
-| business_type | Scan business-brain.md for | Pick | Timing | Why-line tied to |
+| business_type | Scan business-brain.md for | Pick | Timing | Why-line anchor |
 |---|---|---|---|---|
 | `coach` | thought-leaders, methodologies admired, upcoming workshop/cohort/launch | thought-leader name | "tomorrow morning" | upcoming workshop / cohort / launch |
 | `agency-owner` | prospect URLs, top competitors, named pitch targets | prospect URL or top competitor | "tomorrow before your sales call" | CRO weaknesses to lead with in pitch |
@@ -168,6 +135,7 @@ Pick the single highest-leverage research action the user should run NEXT, based
 
 **Picking rule (avoid duplicating the Phase 6 demo):**
 - If the topic you'd pick matches `first_brief_topic` in `state-research.md`, pick the SECOND-best candidate from business-brain.md instead
+- If `first_brief_topic` is absent from `state-research.md` (e.g., Phase 6 was skipped), treat the de-duplicate check as passing and pick the top candidate
 - If business-brain.md only surfaces one candidate, point the user to the next utility skill that fits their business type (e.g., `/web-audit` for agency-owner if no second prospect URL)
 
 **Format the block exactly like this** (canonical — caps, leading lightning emoji, colon, space):
@@ -187,25 +155,67 @@ Pick the single highest-leverage research action the user should run NEXT, based
 - ✅ sales-led-b2b: `⚡ NEXT MOVE: Run /research-brief on Stripe tomorrow before your first outreach. Why: Lets you open with their actual priorities, not your script.`
 - ❌ `⚡ NEXT MOVE: Try the other skills.` (no subject, no timing, no specificity — REJECT)
 
-### Validation pattern (do not skip)
-
-The block MUST match:
+**Validation pattern (do not skip):** The block MUST match:
 `⚡ NEXT MOVE: .+ .+ .+\n   Why: .+`
 
-If it doesn't match, the wizard wrap-up is incomplete — regenerate the block before showing the final message.
+If it doesn't match, regenerate the block before advancing to Step 2.
 
-### Step 4 — Show the final wrap-up message
+### Step 2 — Append onboarding-complete log line
 
-Lead with the ⚡ NEXT MOVE, then the rest of the wrap-up:
+Append to `<workspace>/about-me/memory.md`:
+```
+<ISO date>: cowork-research v0.1.0 onboarded for <business-type>
+```
+
+This is a passive log entry, not a state flag — safe to write before the user sees the wrap-up.
+
+### Step 3 — Show the final wrap-up message
+
+Lead with the ⚡ NEXT MOVE block from Step 1, then the rest:
 
 > *"Wizard done. You're set up.*
 >
-> *⚡ NEXT MOVE: [the block from Step 3]*
-> *   Why: [the why-line from Step 3]*
+> *⚡ NEXT MOVE: [Subject Verb Timing from Step 1]*
+> *   Why: [why-line from Step 1]*
 >
 > *Other skills you can use now:*
 > *- `/research-brief <topic>` — generate a brief on anything*
 > *- `/web-audit <url>` — CRO + competitive audit of any page*
 > *- `/meeting-recap <fathom-url>` — pull decisions, actions, and quotes from a Fathom call*
 >
-> *Calibration check is locked in for `[date]`. Come back then and we'll see how the 4 Cs moved."*
+> *Calibration check is locked in for `[date]`. Come back then and we'll see if your research is actually working."*
+
+### Step 4 — Self-improvement close (Foundation B — wizard variant)
+
+The wizard runs once per onboarding, but the self-improve loop still fires once at wrap-up so we learn what the wizard routinely fails at across runs. This fires AFTER the user has seen the wrap-up + NEXT MOVE, matching the gold-standard sequence ("after delivering main output + Next Move block, ask").
+
+Ask the user this exact question (one line, plain English):
+
+> *"What would've made this onboarding 10% better?"*
+
+Accept a one-line answer. Then:
+
+1. Append to `<workspace>/projects/research/memory.md`:
+   ```
+   <YYYY-MM-DD> | /onboard-research | <answer verbatim>
+   ```
+
+2. Read `memory.md` and check if any pattern recurs 3+ times for `/onboard-research`. Pattern matching:
+   - Substring overlap >= 60% with prior entries
+   - Same keyword (e.g., "Phase 2", "connector", "destination", "calibration", "demo", "too long")
+
+3. If recurrence detected:
+   - Surface: *"I've seen this 3+ times. Want me to update `/onboard-research` itself?"*
+   - If yes → draft change to `<workspace>/projects/research/skill-improvements.md` in this format:
+     ```
+     | /onboard-research | <pattern> | <first_seen_date> | <recurrence_count> | <suggested_change> | <reviewed: no> |
+     ```
+
+4. If no recurrence → silent. No noise.
+
+### Step 5 — Mark install_complete (LAST action)
+
+This MUST be the final write. If anything above crashes, state correctly reflects "not complete" and the next `/onboard-research` invocation will resume the wrap-up.
+
+- Mark `install_complete: true` in `state-research.md`
+- Confirm `completed_at: <ISO timestamp>` is written at the top of `state-research.md` (canonical write point — see Resume section above)

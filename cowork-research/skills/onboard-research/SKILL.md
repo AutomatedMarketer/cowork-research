@@ -64,14 +64,15 @@ After each phase's verification passes:
 
 ## After all phases complete
 
-The full wrap-up sequence lives in [`phases/07-cadence-and-calibration.md`](phases/07-cadence-and-calibration.md) under "After Phase 7 — wizard wrap-up". It runs (in order):
+The full wrap-up sequence lives in [`phases/07-cadence-and-calibration.md`](phases/07-cadence-and-calibration.md) under "After Phase 7 — wizard wrap-up". The order is load-bearing — `install_complete: true` is the LAST write so a mid-wrap-up crash leaves state as "not complete" and the next invocation resumes the wrap-up. It runs (in order):
 
-1. Mark `install_complete: true` in `state-research.md` + append to `about-me/memory.md`
-2. **Self-improvement close** — ask "What would've made this onboarding 10% better?" → append to `projects/research/memory.md` → flag `/onboard-research` for revision if 3+ recurrence
-3. **⚡ NEXT MOVE block** — business-type-aware, picks one specific research action from `business-brain.md` (skipping the Phase 6 demo topic) — must pass the canonical regex `⚡ NEXT MOVE: .+ .+ .+\n   Why: .+`
-4. Final wrap-up message (leads with the ⚡ NEXT MOVE, lists the other skills, names the 14-day calibration date)
+1. **Build the ⚡ NEXT MOVE block** — business-type-aware, picks one specific research action from `business-brain.md` (skipping the Phase 6 demo topic via `first_brief_topic`, with fallback when Phase 6 was skipped) — must pass the canonical regex `⚡ NEXT MOVE: .+ .+ .+\n   Why: .+`
+2. **Append onboarding-complete log line** to `about-me/memory.md` (passive log, not a state flag)
+3. **Show the final wrap-up message** — leads with the ⚡ NEXT MOVE, lists the other skills, names the 14-day calibration date in plain English
+4. **Self-improvement close** — ask "What would've made this onboarding 10% better?" → append to `projects/research/memory.md` → flag `/onboard-research` for revision if 3+ recurrence
+5. **Mark `install_complete: true`** in `state-research.md` AS THE LAST ACTION
 
-The 14-day calibration check itself is scheduled in Phase 7 Step 4.
+The 14-day calibration check itself is scheduled earlier in Phase 7 (cadence Step 4).
 
 ## Hard rules
 
