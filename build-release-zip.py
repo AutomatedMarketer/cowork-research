@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 import zipfile
 from pathlib import Path
@@ -44,6 +45,40 @@ def should_exclude(rel_path: str) -> bool:
     return False
 
 
+DESC_LIMIT = 300
+
+
+def lint_plugin(plugin_dir: Path) -> list[str]:
+    """Cowork plugin validator rejects SKILL.md and plugin.json descriptions
+    that are over ~300 chars or contain non-ASCII (em-dashes, smart quotes,
+    arrows, etc.). Fail fast at build time instead of shipping a broken zip.
+    """
+    errors: list[str] = []
+    pj = json.loads((plugin_dir / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
+    pj_desc = pj.get("description", "")
+    if len(pj_desc) > DESC_LIMIT:
+        errors.append(f"plugin.json description is {len(pj_desc)} chars (max {DESC_LIMIT})")
+    non_ascii = sorted({c for c in pj_desc if ord(c) > 127})
+    if non_ascii:
+        errors.append(f"plugin.json description has non-ASCII chars: {non_ascii}")
+    for sk in sorted(plugin_dir.glob("skills/**/SKILL.md")):
+        text = sk.read_text(encoding="utf-8")
+        fm = re.match(r"^---\s*\n(.*?)\n---", text, re.S)
+        if not fm:
+            continue
+        m = re.search(r'^description:\s*"(.+?)"', fm.group(1), re.S | re.M)
+        if not m:
+            continue
+        d = m.group(1)
+        rel = sk.relative_to(plugin_dir).as_posix()
+        if len(d) > DESC_LIMIT:
+            errors.append(f"{rel} description is {len(d)} chars (max {DESC_LIMIT})")
+        na = sorted({c for c in d if ord(c) > 127})
+        if na:
+            errors.append(f"{rel} description has non-ASCII chars: {na}")
+    return errors
+
+
 def main() -> int:
     plugin_manifest = PLUGIN_DIR / ".claude-plugin" / "plugin.json"
     if not plugin_manifest.exists():
@@ -56,6 +91,15 @@ def main() -> int:
     if not version:
         print("ERROR: could not parse version from plugin.json", file=sys.stderr)
         return 1
+
+    print("Linting SKILL.md and plugin.json descriptions...")
+    lint_errors = lint_plugin(PLUGIN_DIR)
+    if lint_errors:
+        print("ERROR: Cowork validator rule violations:", file=sys.stderr)
+        for e in lint_errors:
+            print(f"  - {e}", file=sys.stderr)
+        return 1
+    print("  OK")
 
     zip_path = RELEASE_DIR / f"cowork-research-v{version}.zip"
     print(f"Building cowork-research v{version}...")

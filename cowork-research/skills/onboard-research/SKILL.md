@@ -1,6 +1,6 @@
 ---
 name: onboard-research
-description: "7-phase install wizard for the cowork-research engine. Reads about-me/business-brain.md from cowork-ai-os, classifies into one of 6 business types, recommends top 3 research connectors per type (delegates to cowork-ai-os v0.10.2's /browse-connectors which live-fetches the directory), picks default destination (workspace / vault / Notion), calibrates research preferences, schedules cadence + 14-day calibration check. State.md resumable. Inspired by Karpathy's LLM Wiki framing and Corey Ganim's 'Cowork as employee' pattern."
+description: "7-phase install wizard for the cowork-research engine. Reads business-brain.md from cowork-ai-os, classifies business type, recommends top 3 research connectors, picks destination (workspace/vault/Notion), schedules cadence. Resumable via state.md."
 when_to_use:
   - /onboard-research
   - onboard research

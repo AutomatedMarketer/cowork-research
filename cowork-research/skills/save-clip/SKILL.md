@@ -1,6 +1,6 @@
 ---
 name: save-clip
-description: "Clip any URL into your research library as clean markdown. Reads about-me/business-brain.md for tag suggestions. Uses Firecrawl primary + Playwright fallback for login-walled pages. Lands in reference/research/clips/<slug>.md with frontmatter (source URL, accessed date, tags, user note). Plan-then-approve writes. Optional vault fold-back per preferences."
+description: "Clip any URL into your research library as clean markdown. Reads business-brain.md for tag suggestions. Firecrawl primary + Playwright fallback. Lands in reference/research/clips/<slug>.md with frontmatter (source, date, tags, note). Plan-then-approve. Optional vault fold-back."
 when_to_use:
   - /save-clip
   - clip this

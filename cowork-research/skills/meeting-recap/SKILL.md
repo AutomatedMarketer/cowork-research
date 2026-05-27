@@ -1,6 +1,6 @@
 ---
 name: meeting-recap
-description: "Pull a Fathom transcript and extract decisions, action items, open questions, and notable quotes. Reads about-me/business-brain.md (for ICP context — what the user cares about). Uses Fathom MCP. Lands in reference/research/meetings/<date>-<title>.md. Optionally drafts to chosen destination."
+description: "Pull a Fathom transcript and extract decisions, action items, open questions, and notable quotes. Reads business-brain.md for ICP context. Uses Fathom MCP. Lands in reference/research/meetings/<date>-<title>.md. Optionally drafts to chosen destination."
 when_to_use:
   - /meeting-recap
   - recap this meeting

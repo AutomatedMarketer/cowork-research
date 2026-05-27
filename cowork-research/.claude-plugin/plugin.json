@@ -1,6 +1,6 @@
 {
   "name": "cowork-research",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Research engine for the Cowork AI OS. Wire your assistant for brand briefs, web audits, meeting recaps, and browser-clip archiving with per-business-type connector recommendations. Soft-depends on cowork-ai-os for identity files.",
   "author": {
     "name": "Nuno Tavares",

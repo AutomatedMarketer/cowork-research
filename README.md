@@ -1,7 +1,7 @@
 # cowork-research
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-0.2.0-brightgreen.svg?style=flat-square)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.2.1-brightgreen.svg?style=flat-square)](./CHANGELOG.md)
 [![Platform: Mac · Windows · Linux](https://img.shields.io/badge/platform-Mac%20%C2%B7%20Windows%20%C2%B7%20Linux-blue.svg?style=flat-square)](#install)
 [![Built for Claude Cowork](https://img.shields.io/badge/built%20for-Claude%20Cowork-7C3AED.svg?style=flat-square)](https://claude.com/product/cowork)
 

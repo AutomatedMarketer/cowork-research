@@ -1,6 +1,6 @@
 ---
 name: web-audit
-description: "CRO + competitive audit of any URL. Bulleted recommendations against the web-audit-checklist.md heuristics. Reads about-me/business-brain.md (for ICP context). Uses Firecrawl + Playwright (for login-walled pages). Read-only on the web — never submits forms or clicks destructive actions. Lands in reference/research/audits/<domain>-<date>.md."
+description: "CRO + competitive audit of any URL. Bulleted recommendations against web-audit-checklist heuristics. Reads business-brain.md for ICP context. Uses Firecrawl + Playwright. Read-only. Lands in reference/research/audits/<domain>-<date>.md."
 when_to_use:
   - /web-audit
   - audit this page
