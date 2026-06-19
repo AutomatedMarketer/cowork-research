@@ -9,7 +9,7 @@ A [Claude Cowork](https://claude.com/product/cowork) plugin (also runs in [Claud
 
 > **Stop pasting links into ChatGPT. Your assistant already knows your business, your ICP, and your offer. Give it the right tools and it researches in your voice.**
 
-Built by [Nuno Tavares](https://nunomtavares.com) for [VCInc](https://vcinc.com) cohort students and anyone who wants research that accumulates instead of evaporating after every conversation.
+Built by [Nuno Tavares](https://nunomtavares.com) for [VCInc](https://vcinc.ai) cohort students and anyone who wants research that accumulates instead of evaporating after every conversation.
 
 ---
 

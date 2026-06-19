@@ -53,4 +53,4 @@ The wizard is resumable via `state-research.md` and skips phases you've already 
 
 ## Credits
 
-Built by Nuno Tavares of Automated Marketer for the [VCInc](https://vcinc.com) cohort. Karpathy framing borrowed gratefully from the [LLM Wiki gist](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f). "Cowork as employee" framing borrowed from Corey Ganim's pattern. Source course material drawn from Jack Roberts' Cowork course (Chapter 5 use cases on brand briefs, web audits, and meeting recaps). Memory architecture pattern carried over from `cowork-obsidian v0.5`.
+Built by Nuno Tavares of Automated Marketer for the [VCInc](https://vcinc.ai) cohort. Karpathy framing borrowed gratefully from the [LLM Wiki gist](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f). "Cowork as employee" framing borrowed from Corey Ganim's pattern. Source course material drawn from Jack Roberts' Cowork course (Chapter 5 use cases on brand briefs, web audits, and meeting recaps). Memory architecture pattern carried over from `cowork-obsidian v0.5`.
